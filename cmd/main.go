@@ -41,7 +41,7 @@ func jwtToken(next http.Handler) http.Handler {
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Skip Auth for OPTIONS
-		if r.Method == "OPTIONS" || r.URL.Path == "/register" || r.URL.Path == "/login" {
+		if r.Method == "OPTIONS" || r.URL.Path == "/register" || r.URL.Path == "/login" || r.URL.Path == "/" {
 			next.ServeHTTP(w, r)
 			return
 		}

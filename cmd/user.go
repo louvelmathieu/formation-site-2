@@ -27,7 +27,7 @@ type User struct {
 	Phone     string `json:"phone" gorm:"type:varchar(255)"`
 
 	Password     string `json:"-" gorm:"type:text"`
-	TextPassword string `json:"-" gorm:"-"`
+	TextPassword string `json:"text_password" gorm:"-"`
 }
 
 func (user User) FindOne(email string, pwd string) (User, error) {
