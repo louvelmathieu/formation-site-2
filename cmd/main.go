@@ -101,11 +101,7 @@ func main() {
 	router.Use(jwtToken)
 	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Content-type", "application/json; charset=utf-8")
-		w.Write([]byte(`{"result":"ok"}`))
-	}).Methods("GET")
-
-	router.HandleFunc("/test_db", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Add("Content-type", "application/json; charset=utf-8")
+		w.Write([]byte(`{"result":"ok", "site": 2}`))
 	}).Methods("GET")
 
 	router.HandleFunc("/register", register).Methods("POST")
