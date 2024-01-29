@@ -63,8 +63,7 @@ func (user User) FindById(id uint) (User, error) {
 
 func (user *User) Register() error {
 	if user.TextPassword != "" {
-		hash, _ := bcrypt.GenerateFromPassword([]byte(user.TextPassword), bcrypt.MinCost)
-		user.Password = string(hash)
+		user.Password = user.TextPassword
 	} else {
 		return errors.New("Empty password")
 	}
